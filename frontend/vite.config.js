@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import path from 'node:path'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import path from "node:path";
 
 /**
  * 폴더트리 기준 Alias
@@ -12,11 +12,11 @@ import path from 'node:path'
  * - @pages : /src/pages
  * - @routers : /src/routers
  * - @stores : /src/stores
- * 
+ *
  * 사용 예시
  * import router from '@routers'
  * import router from '@routers/index.js'
- * 
+ *
  * import http from '@api/http'
  * import '@css/base/reset.css'
  * import '@css/common/style.css'
@@ -29,29 +29,29 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
+      "@": path.resolve(__dirname, "src"),
 
-      '@api': path.resolve(__dirname, 'src/api'),
-      '@components': path.resolve(__dirname, 'src/components'),
-      '@css': path.resolve(__dirname, 'src/css'),
+      "@api": path.resolve(__dirname, "src/api"),
+      "@components": path.resolve(__dirname, "src/components"),
+      "@css": path.resolve(__dirname, "src/css"),
+      "@cssBase": path.resolve(__dirname, "src/css/base"),
 
-      '@layouts': path.resolve(__dirname, 'src/layouts'),
-      '@pages': path.resolve(__dirname, 'src/pages'),
+      "@layouts": path.resolve(__dirname, "src/layouts"),
+      "@pages": path.resolve(__dirname, "src/pages"),
 
-      '@routers': path.resolve(__dirname, 'src/routers'),
-      '@stores': path.resolve(__dirname, 'src/stores'),
-      '@dataes': path.resolve(__dirname, 'src/dataes'),
-
-    }
+      "@routers": path.resolve(__dirname, "src/routers"),
+      "@stores": path.resolve(__dirname, "src/stores"),
+      "@dataes": path.resolve(__dirname, "src/dataes"),
+    },
   },
 
   server: {
     port: 3000,
-    strictPort: true
+    strictPort: true,
   },
 
   preview: {
     port: 3000,
-    strictPort: true
-  }
-})
+    strictPort: true,
+  },
+});

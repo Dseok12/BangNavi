@@ -1,0 +1,4 @@
+.header-wrap{padding: 10px 0;border-bottom: 1px solid #ccc;background-color: #f1f1f1;}
+.header--inner{display: flex;align-items: center;justify-content: space-between;}
+.BangNaviLogo > a{font-size: 24px;font-weight: bold;color: #333;text-decoration: none;}
+.menu-box{display: flex;gap: 15px;}

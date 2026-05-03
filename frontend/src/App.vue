@@ -1,4 +1,12 @@
 <template>
-  <h1>안녕</h1>
+  <TopHeader />
 </template>
-<script></script>
+<script>
+import TopHeader from "@components/TopHeader.vue";
+
+export default {
+  components: {
+    TopHeader,
+  },
+};
+</script>
