@@ -9,10 +9,10 @@ import "@cssBase/reset.css";
 import "@cssBase/base.css";
 import "@cssBase/common.css";
 
-// import router from "./router"; // 방금 만든 라우터 불러오기
+import router from "./router"; // 방금 만든 라우터 불러오기
 
 const app = createApp(App);
 
-// app.use(router); // 앱에 라우터 장착
+app.use(router); // 앱에 라우터 장착
 
 app.mount("#app");

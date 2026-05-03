@@ -1,0 +1,12 @@
+
+.mainPage-container--inner {width: 1200px;margin: 0 auto;display: flex;gap: 50px;align-items: flex-start;}
+.mainPage-content-left {flex: 1; }
+.mainPage-post-list-section {display: flex;flex-direction: column;gap: 20px;}
+.mainPage-sidebar-right {width: 300px;flex-shrink: 0;display: flex;flex-direction: column;gap: 20px;}
+.mainPage-post-list-title { font-size: 16px;font-weight: bold;border-bottom: 1px solid #ccc;padding: 1rem;color: #333;display: flex;align-items: center;justify-content: space-between;gap: 20px;background-color: #f1f1f1;}
+.mainPage-post-list-title .mainPage-post-item__title{width: 650px; text-align: center; color: #333;display: inline-block;white-space: nowrap;overflow: hidden;text-overflow: ellipsis; text-decoration: none;font-size: 16px;font-weight: bold;}
+.mainPage-post-list{list-style: none;}
+.mainPage-post-item{padding: 1rem 1rem;border-bottom: 1px solid #ccc;display: flex;align-items: center;justify-content: space-between;gap: 20px;}
+.mainPage-post-item__title{width: 650px; color: #333;display: inline-block;white-space: nowrap;overflow: hidden;text-overflow: ellipsis; text-decoration: none;font-size: 16px;font-weight: bold;}
+.mainPage-post-item__infoTxt{width: 200px;color: #333;display: flex;align-items: center;justify-content: space-between;font-size: 14px;flex: 1;}
+.mainPage-login-widget, .mainPage-banner-widget {padding: 15px;border: 1px solid #ddd;margin-bottom: 10px;background-color: #fff;}

@@ -1,4 +1,14 @@
-.header-wrap{padding: 10px 0;border-bottom: 1px solid #ccc;background-color: #f1f1f1;}
+
+/*TopHeader*/
+.header-wrap{width: 100%;border-bottom: 1px solid #ccc;background-color: #f1f1f1;}
 .header--inner{display: flex;align-items: center;justify-content: space-between;}
+.BangNaviLogo{padding: 1.5rem 0;}
 .BangNaviLogo > a{font-size: 24px;font-weight: bold;color: #333;text-decoration: none;}
-.menu-box{display: flex;gap: 15px;}
+
+/*MiddleHeader*/
+.middle__header-wrap{background-color: #f1f1f1;padding: 1.3rem 0;border-bottom: 1px solid #ccc;}
+.middle__header--inner{display: flex;align-items: center;justify-content: space-between;}
+.middle__header--inner .menu-box{display: flex;gap: 1.1rem;}
+.middle__header--inner .menu-box li a{color: #333;text-decoration: none;}
+
+/*BottomHeader*/
