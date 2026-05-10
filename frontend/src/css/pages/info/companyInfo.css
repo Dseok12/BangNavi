@@ -1,0 +1,43 @@
+/* 상단 히어로 섹션 */
+.info-hero {
+  background-color: #fff; /* 방네비 딥 블루 */
+  color: #333;
+  padding: 120px 0;
+  text-align: center;
+}
+
+.info-logo-txt { font-size: 56px; font-weight: 900; margin-bottom: 30px; letter-spacing: -2px; }
+.info-slogan { font-size: 22px; font-weight: 300; opacity: 0.9; }
+.info-divider { width: 60px; height: 2px; background-color: #333; margin: 30px auto; }
+.info-mission { font-size: 18px; line-height: 1.8; font-weight: 300; opacity: 0.8; }
+
+/* 공통 섹션 타이틀 */
+.info-section-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 70px;
+  color: #111;
+}
+
+/* 핵심 가치 카드 */
+.info-values { padding: 0px 0 100px; background-color: #fff; }
+.value-card-container { display: flex; gap: 40px; }
+.value-card {
+  flex: 1;
+  padding: 50px 30px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.value-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+.value-number { font-size: 48px; font-weight: 900; color: #f0f0f0; position: absolute; top: 20px; right: 30px; z-index: 0; }
+.value-card h4 { font-size: 20px; font-weight: bold; margin-bottom: 20px; color: #00008B; position: relative; }
+.value-card p { font-size: 15px; color: #666; line-height: 1.6; position: relative; }
+
+/* 연락처 섹션 */
+.info-contact { padding: 80px 0; background-color: #f9f9f9; text-align: center; }
+.contact-list { list-style: none; padding: 0; }
+.contact-list li { font-size: 16px; color: #444; margin-bottom: 15px; }
+.contact-list strong { color: #00008B; margin-right: 10px; }

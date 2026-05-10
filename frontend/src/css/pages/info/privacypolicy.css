@@ -1,0 +1,90 @@
+.privacy-page-wrap {
+  padding: 0 0 0px;
+  background-color: #fff;
+  line-height: 1.7;
+  color: #444;
+}
+
+.privacy-main-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #111;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.privacy-update-date {
+  font-size: 14px;
+  color: #888;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.privacy-content-box {
+  max-width: 900px;
+  margin: 0 auto;
+  border-top: 2px solid #00008B; /* 방네비 딥 블루 포인트 */
+  padding-top: 40px;
+}
+
+.privacy-section {
+  margin-bottom: 50px;
+}
+
+.privacy-section h3 {
+  font-size: 19px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  border-left: 4px solid #00008B;
+}
+
+.privacy-section p {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+/* 데이터 테이블 스타일 */
+.privacy-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.privacy-table th, .privacy-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.privacy-table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+/* 리스트 스타일 */
+.privacy-section ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.privacy-section ul li {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+/* 강조 박스 */
+.highlight-box {
+  background-color: #f1f3f5;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.contact-info {
+  list-style: none !important;
+  background-color: #fafafa;
+  padding: 20px !important;
+  border: 1px dashed #ccc;
+}

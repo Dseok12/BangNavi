@@ -1,0 +1,160 @@
+/* 전체 레이아웃 */
+.recommend-realty-wrap {
+  padding: 0px 0 60px;
+  background-color: #fff;
+}
+
+.recommend-realty--inner {
+  width: 1200px; /* 방네비 표준 규격 */
+  margin: 0 auto;
+}
+
+/* 헤더 영역 */
+.recommend-realty-header {
+  margin-bottom: 40px;
+  border-bottom: 1px solid #000; /* 투박한 상단 구분선 */
+  padding-bottom: 20px;
+}
+
+.recommend-realty-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.recommend-realty-desc {
+  font-size: 16px;
+  color: #666;
+}
+
+/* 테이블 영역 */
+.recommend-realty-table__wrap {
+  width: 100%;
+  overflow-x: auto; /* 모바일 대응용 */
+}
+
+.recommend-realty-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* 고정 너비로 정렬 무결성 확보 */
+}
+
+/* 테이블 헤더 */
+.recommend-realty-table thead th {
+  background-color: #f8f8f8;
+  color: #000;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 15px 10px;
+  border-bottom: 2px solid #333; /* 헤더 강조 선 */
+  text-align: center;
+}
+
+/* 테이블 바디 */
+.recommend-realty-table tbody td {
+  padding: 18px 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+  word-break: keep-all; /* 단어 단위 줄바꿈 */
+  line-height: 1.5;
+}
+
+.recommend-realty-table th:nth-child(1) { width: 45%; } /* 제목 비중 확대 */
+.recommend-realty-table th:nth-child(2) { width: 20%; } /* 부동산명 */
+.recommend-realty-table th:nth-child(3) { width: 12%; } /* 작성자 */
+.recommend-realty-table th:nth-child(4) { width: 8%; }  /* 조회수 */
+.recommend-realty-table th:nth-child(5) { width: 15%; } /* 작성일 */
+
+.td-post-title {
+  text-align: left !important;
+  padding-left: 20px !important;
+}
+
+.td-post-title a {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* 제목 길면 말줄임표 */
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.td-post-title a:hover {
+  text-decoration: underline;
+  color: #00008B;
+}
+
+.td-realty-name {
+  color: #666;
+  font-size: 13px;
+}
+
+/* 페이징 영역 */
+.pagination-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-top: 50px;
+}
+
+.page-btn {
+  padding: 8px 14px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.page-btn:hover:not(:disabled) {
+  border-color: #000;
+  background-color: #f8f8f8;
+}
+
+/* 활성화된 페이지 (검정색 투박한 강조) */
+.page-btn.active {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+  font-weight: bold;
+}
+
+.page-btn:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+  border-color: #eee;
+}
+
+.page-btn.prev, .page-btn.next {
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+/* 글쓰기 버튼 영역 */
+.list-action-wrap {
+  display: flex;
+  justify-content: flex-end; /* 우측 정렬 */
+  margin-bottom: 20px;
+}
+
+.write-btn {
+  display: inline-block;
+  padding: 12px 35px;
+  background-color: #000; /* 투박한 블랙 */
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  border: 1px solid #000;
+  transition: all 0.2s;
+}
+
+.write-btn:hover {
+  background-color: #00008B; /* 방네비 딥 블루 */
+  border-color: #00008B;
+}

@@ -1,0 +1,56 @@
+.post-write-wrap { padding: 50px 0; background: #fff; }
+.post-write--inner { width: 1200px; margin: 0 auto; }
+
+.write-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.common-select { padding: 10px; border: 1px solid #000; font-weight: bold; }
+
+.title-input { width: 100%; padding: 15px 0; font-size: 24px; font-weight: bold; border: none; border-bottom: 2px solid #eee; outline: none; margin-bottom: 20px; }
+
+/* 에디터 툴바 스타일 */
+.editor-toolbar { padding: 10px; border: 1px solid #000; border-bottom: none; display: flex; gap: 10px; background: #f9f9f9; }
+.editor-toolbar button { padding: 5px 12px; background: #fff; border: 1px solid #ddd; cursor: pointer; }
+.editor-toolbar button.active { background: #000; color: #fff; border-color: #000; }
+
+/* 에디터 본문 영역 */
+.editor-content-area { border: 1px solid #000; min-height: 500px; padding: 20px; }
+.ProseMirror { outline: none; min-height: 460px; line-height: 1.8; font-size: 16px; }
+.ProseMirror img { max-width: 100%; height: auto; border-radius: 4px; margin: 10px 0; }
+.ProseMirror blockquote { border-left: 4px solid #00008B; padding-left: 20px; color: #666; font-style: italic; }
+
+.write-footer { display: flex; justify-content: flex-end; gap: 10px; margin-top: 30px; }
+.submit-btn { padding: 15px 40px; background: #00008B; color: #fff; border: none; font-weight: bold; cursor: pointer; }
+.cancel-btn { padding: 15px 40px; background: #eee; border: none; cursor: pointer; }
+
+/* 동적 필드 박스 */
+.extra-fields-box {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.input-row input, .sub-select {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.full-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.sub-select {
+  background-color: #fff;
+}

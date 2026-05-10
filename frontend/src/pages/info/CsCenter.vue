@@ -1,5 +1,5 @@
 <template>
-  <div class="info--inner">해당 페이지는 개발 중입니다.</div>
+  <div>소개</div>
 </template>
 <script>
 export default {};

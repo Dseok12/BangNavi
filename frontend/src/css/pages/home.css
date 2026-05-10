@@ -22,4 +22,4 @@
 
 .td-title a {display: block;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;color: #333;font-weight: bold;text-decoration: none;}
 .td-title a:hover {text-decoration: underline;color: #00008B;}
-.mainPage-login-widget, .mainPage-banner-widget {padding: 15px;border: 1px solid #ddd;background-color: #fff;}
+.mainPage-login-widget, .mainPage-banner-widget {padding: 15px;border: 1px solid #ddd;background-color: #fff;border-radius: 8px;}
