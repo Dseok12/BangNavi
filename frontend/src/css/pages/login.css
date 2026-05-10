@@ -1,0 +1,4 @@
+.mainPage-login-widget{padding: 15px;border: 1px solid #ddd;background-color: #fff;display: flex;flex-direction: column;gap: 10px;}
+.login-title {font-size: 18px;color: #333;font-weight: bold;text-align: center;}
+.login-input{padding: 10px;border: 1px solid #ccc;border-radius: 4px;font-size: 14px;}
+.login-btn{padding: 10px;background-color: #007BFF;color: #fff;border: none;border-radius: 4px;font-size: 16px;cursor: pointer;}

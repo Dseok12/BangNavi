@@ -15,7 +15,6 @@
           <li>
             <router-link to="/ownerdirect">집주인직접</router-link>
           </li>
-          <li><router-link to="/login">로그인</router-link></li>
           <li><router-link to="/signup">회원가입</router-link></li>
           <!--나중에 분기 처리 할 예정
           <li>
