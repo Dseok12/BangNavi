@@ -5,11 +5,11 @@
 
       <form @submit.prevent="handleSignup" class="signup-form">
         <div class="form-section">
-          <label>아이디</label>
+          <label>이름 또는 닉네임</label>
           <input
             type="text"
-            v-model="form.userId"
-            placeholder="아이디를 입력하세요"
+            v-model="form.name"
+            placeholder="이름 또는 닉네임을 입력하세요"
             required
           />
 
@@ -71,18 +71,18 @@
         <div class="form-section">
           <label>회원 유형</label>
           <div class="radio-group">
-            <label
-              ><input type="radio" v-model="form.role" value="USER" />
-              일반사용자</label
-            >
-            <label
-              ><input type="radio" v-model="form.role" value="OWNER" />
-              집주인</label
-            >
-            <label
-              ><input type="radio" v-model="form.role" value="AGENT" />
-              중개업자</label
-            >
+            <label>
+              <input type="radio" v-model="form.role" value="USER" />
+              일반사용자
+            </label>
+            <label>
+              <input type="radio" v-model="form.role" value="LESSOR" />
+              집주인
+            </label>
+            <label>
+              <input type="radio" v-model="form.role" value="REALTOR" />
+              중개업자
+            </label>
           </div>
         </div>
 
@@ -117,24 +117,24 @@
           </div>
           <hr />
           <div class="agree-item">
-            <label
-              ><input type="checkbox" v-model="agreements.terms" required />
-              [필수] 이용약관 동의</label
-            >
+            <label>
+              <input type="checkbox" v-model="agreements.terms" required />
+              [필수] 이용약관 동의
+            </label>
             <a href="#" class="view-detail">보기</a>
           </div>
           <div class="agree-item">
-            <label
-              ><input type="checkbox" v-model="agreements.privacy" required />
-              [필수] 개인정보 수집 및 이용 동의</label
-            >
+            <label>
+              <input type="checkbox" v-model="agreements.privacy" required />
+              [필수] 개인정보 수집 및 이용 동의
+            </label>
             <a href="#" class="view-detail">보기</a>
           </div>
           <div class="agree-item">
-            <label
-              ><input type="checkbox" v-model="agreements.marketing" /> [선택]
-              마케팅 정보 수신 동의</label
-            >
+            <label>
+              <input type="checkbox" v-model="agreements.marketing" /> [선택]
+              마케팅 정보 수신 동의
+            </label>
           </div>
         </div>
 
@@ -148,25 +148,26 @@
 
 <script>
 import "@css/pages/signup.css";
+// 🔌 공통 Axios 설정 임포트 완료
+import api from "@/api/index.js";
 
 export default {
   name: "Signup",
   data() {
     return {
       form: {
-        userId: "",
+        name: "", // 백엔드 DTO 규격 일치화
         password: "",
         email: "",
-        role: "USER",
+        role: "USER", // USER, LESSOR, REALTOR
         phone: "",
         address: "",
         gender: "",
       },
-      // 💡 인증 관련 데이터 추가
       isEmailSent: false,
       isVerified: false,
       verificationCode: "",
-      timer: 180, // 3분 (180초)
+      timer: 180,
       timerInterval: null,
 
       agreements: {
@@ -178,7 +179,6 @@ export default {
     };
   },
   computed: {
-    // ⏰ 초 단위를 분:초 형식으로 변환
     formattedTime() {
       const minutes = Math.floor(this.timer / 60);
       const seconds = this.timer % 60;
@@ -186,16 +186,26 @@ export default {
     },
   },
   methods: {
-    // ✉️ 인증 이메일 발송 요청
-    sendVerificationEmail() {
+    // ✉️ 1. 우회 탑재된 백엔드 인증코드 메모리 적재 호출
+    async sendVerificationEmail() {
       if (!this.form.email) {
         alert("이메일을 먼저 입력해주세요.");
         return;
       }
-      // 실제 구현 시: await axios.post('/auth/email-send', { email: this.form.email });
-      alert("인증번호가 발송되었습니다. 메일함을 확인해주세요.");
-      this.isEmailSent = true;
-      this.startTimer();
+      try {
+        const response = await api.post("/users/verify/send", {
+          email: this.form.email,
+        });
+        // 우회 시스템 가동으로 백엔드에서 성공 메시지가 돌아옵니다.
+        alert(response.data.message);
+        this.isEmailSent = true;
+        this.startTimer();
+      } catch (error) {
+        console.error("이메일 발송 에러:", error);
+        alert(
+          error.response?.data?.message || "인증 요청 중 오류가 발생했습니다.",
+        );
+      }
     },
     // ⏱ 타이머 시작
     startTimer() {
@@ -209,20 +219,22 @@ export default {
         }
       }, 1000);
     },
-    // ✅ 인증번호 확인
-    confirmVerificationCode() {
+    // ✅ 2. 백엔드 메모리 맵 서고에 대조 검증 수행
+    async confirmVerificationCode() {
       if (this.timer <= 0) {
-        alert("인증 시간이 만료되었습니다.");
+        alert("인증 시간이 만료되었습니다. 다시 인증요청을 눌러주세요.");
         return;
       }
-      // 실제 구현 시: 백엔드와 번호 대조
-      // 지금은 테스트용으로 '123456' 입력 시 성공 처리
-      if (this.verificationCode === "123456") {
-        alert("인증에 성공했습니다.");
+      try {
+        const response = await api.post("/users/verify/check", {
+          email: this.form.email,
+          code: this.verificationCode, // 사용자가 터미널에서 확인하고 친 대소문자 문자열 전송
+        });
+        alert(response.data.message || "이메일 인증에 성공했습니다.");
         this.isVerified = true;
         clearInterval(this.timerInterval);
-      } else {
-        alert("인증번호가 일치하지 않습니다.");
+      } catch (error) {
+        alert(error.response?.data?.message || "인증번호가 일치하지 않습니다.");
       }
     },
     toggleAll() {
@@ -231,7 +243,8 @@ export default {
       this.agreements.privacy = state;
       this.agreements.marketing = state;
     },
-    handleSignup() {
+    // 🚀 3. 최종 회원가입 승인 및 DB 저장 연동
+    async handleSignup() {
       if (!this.isVerified) {
         alert("이메일 인증을 완료해주세요.");
         return;
@@ -240,11 +253,21 @@ export default {
         alert("필수 약관에 동의해주세요.");
         return;
       }
-      console.log("회원가입 데이터 전송:", this.form);
+
+      try {
+        const response = await api.post("/users/signup", this.form);
+        alert(response.data.message || "방네비 회원가입이 완료되었습니다!");
+        this.$router.push("/login"); // 성공 시 부드럽게 로그인 화면 이동
+      } catch (error) {
+        console.error("회원가입 최종 실패 에러:", error);
+        alert(
+          error.response?.data?.message ||
+            "회원가입 서류 검증 실패. 필드를 다시 확인하세요.",
+        );
+      }
     },
   },
   beforeUnmount() {
-    // 컴포넌트 파괴 시 타이머 정리
     if (this.timerInterval) clearInterval(this.timerInterval);
   },
   watch: {
