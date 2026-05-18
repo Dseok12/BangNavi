@@ -4,7 +4,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { User } from './users/entities/user.entity';
 import { Post } from './posts/entities/post.entity';
-import { UsersModule } from './users/users.module';
+import { UsersModule } from './users/users.module'; // 👈 1. 유저 부서 임포트 확인
 
 @Module({
   imports: [
@@ -24,21 +24,20 @@ import { UsersModule } from './users/users.module';
         logging: true,
       }),
     }),
-    // 📬 메일 발송 전역 모듈 설정
     MailerModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         transport: {
           host: configService.get('MAIL_HOST'),
-          port: 587,
-          secure: false, // 587 포트는 false로 두고 대신 아래 tls 설정을 넣는 것이 안정적입니다.
+          port: 465,
+          secure: true,
           auth: {
             user: configService.get('MAIL_USER'),
             pass: configService.get('MAIL_PASS'),
           },
           tls: {
-            rejectUnauthorized: false, // 로컬 개발 환경에서 보안 인증서 에러로 발송이 막히는 것 방지
+            rejectUnauthorized: false,
           },
         },
         defaults: {
@@ -46,6 +45,8 @@ import { UsersModule } from './users/users.module';
         },
       }),
     }),
+
+    // 🚨 [가장 중요] 여기에 UsersModule 부서가 반드시 등록되어 있어야 백엔드가 /users 주소를 알아먹습니다!
     UsersModule,
   ],
 })
